@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1 or /restaurants/1.json
   def show
+    @review = Review.new
   end
 
   # GET /restaurants/new
@@ -51,7 +52,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: "Restaurant was successfully destroyed." }
+      format.html { redirect_to restaurants_url, notice: "Restaurant was successfully deleted." }
       format.json { head :no_content }
     end
   end
